@@ -1,5 +1,3 @@
-#!/usr/bin/env -S deno
-
 export async function getStdin() {
   let result = "";
   const fd = Deno.stdin;
