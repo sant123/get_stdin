@@ -1,6 +1,6 @@
-# get_stdin ![ci](https://github.com/rjoydip/get_stdin/workflows/ci/badge.svg)
+# get_stdin ![ci](https://github.com/sant123/get_stdin/workflows/ci/badge.svg)
 
-> Get stdin as a string or buffer
+> Get [stdin](https://doc.deno.land/builtin/stable#Deno.stdin) as a string or buffer
 
 ## Usage
 
