@@ -56,21 +56,25 @@ console.log(`Hellou ${guest || 'Stranger'}`);
 
 ## API
 
-### getStdin()
+### getStdin(options?: GetStdinOptions)
 
 Get `stdin` as a `string`.
 
-### getStdinBuffer()
+### getStdinBuffer(options?: GetStdinOptions)
 
 Get `stdin` as a `Buffer`.
 
-### getStdinSync()
+### getStdinSync(options?: GetStdinOptions)
 
 Get `stdin` as a `string` in sync mode.
 
-### getStdinBufferSync()
+### getStdinBufferSync(options?: GetStdinOptions)
 
 Get `stdin` as a `Buffer` in sync mode.
+
+### GetStdinOptions
+
+- `exitOnEnter` (optional) - If `true`, stop reading the stdin once a newline char is reached. Defaults to `true`.
 
 ## Inspired
 
