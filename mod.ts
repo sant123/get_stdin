@@ -1,6 +1,6 @@
 const decoder = new TextDecoder();
 
-interface GetStdinOptions {
+export interface GetStdinOptions {
   /**
    * If `true`, stop reading the stdin once a newline char is reached
    * @default true
