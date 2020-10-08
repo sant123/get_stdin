@@ -6,7 +6,7 @@
 
 ```js
 // example.ts
-import { getStdin, getStdinBuffer } from 'deno.land/x/get_stdin/mod.ts';
+import { getStdin, getStdinBuffer } from 'https://deno.land/x/get_stdin/mod.ts';
 
 console.log(await getStdin());
 //=> 'unicorns'
@@ -23,7 +23,7 @@ console.log(await getStdinBuffer());
 
 ```js
 // example.ts
-import { getStdinSync, getStdinBufferSync } from 'deno.land/x/get_stdin/mod.ts';
+import { getStdinSync, getStdinBufferSync } from 'https://deno.land/x/get_stdin/mod.ts';
 
 console.log(getStdinSync());
 //=> 'unicorns'
@@ -37,7 +37,7 @@ console.log(await getStdinBufferSync());
 ```
 
 ```sh
-$ echo unicorns | deno run --allow-run ./example.ts
+$ echo unicorns | deno run example.ts
 unicorns
 ```
 
@@ -45,7 +45,7 @@ unicorns
 
 ```js
 // example.ts
-import { getStdin } from 'deno.land/x/get_stdin/mod.ts';
+import { getStdin } from 'https://deno.land/x/get_stdin/mod.ts';
 
 console.log("¿What's your name?");
 const guest = await getStdin();
@@ -58,7 +58,7 @@ console.log(`Hellou ${guest || 'Stranger'}`);
 
 ```ts
 // example.ts
-import { getStdin } from 'deno.land/x/get_stdin/mod.ts';
+import { getStdin } from 'https://deno.land/x/get_stdin/mod.ts';
 
 const input = await getStdin({ exitOnEnter: false });
 
