@@ -1,9 +1,19 @@
 const decoder = new TextDecoder();
 
+export interface GetStdinOptions {
+  /**
+   * If `true`, stop reading the stdin once a newline char is reached
+   * @default true
+   */
+  exitOnEnter?: boolean;
+}
+
 /**
  * Returns an Uint8Array from standard input
  */
-export async function getStdinBuffer(): Promise<Uint8Array> {
+export async function getStdinBuffer(
+  options: GetStdinOptions = {}
+): Promise<Uint8Array> {
   const bytes: number[] = [];
 
   while (true) {
@@ -18,8 +28,8 @@ export async function getStdinBuffer(): Promise<Uint8Array> {
 
     const byte = buffer[0];
 
-    // On Enter, exit
-    if (byte === 10) {
+    // On Enter, exit if we are supposed to
+    if (byte === 10 && options.exitOnEnter !== false) {
       break;
     }
 
@@ -32,8 +42,8 @@ export async function getStdinBuffer(): Promise<Uint8Array> {
 /**
  * Returns a string from standard input
  */
-export async function getStdin(): Promise<string> {
-  const buffer = await getStdinBuffer();
+export async function getStdin(options: GetStdinOptions = {}): Promise<string> {
+  const buffer = await getStdinBuffer(options);
 
   return decoder.decode(buffer);
 }
@@ -41,7 +51,7 @@ export async function getStdin(): Promise<string> {
 /**
  * Returns an Uint8Array from standard input in sync mode
  */
-export function getStdinBufferSync(): Uint8Array {
+export function getStdinBufferSync(options: GetStdinOptions = {}): Uint8Array {
   const bytes: number[] = [];
 
   while (true) {
@@ -56,8 +66,8 @@ export function getStdinBufferSync(): Uint8Array {
 
     const byte = buffer[0];
 
-    // On Enter, exit
-    if (byte === 10) {
+    // On Enter, exit if we are supposed to
+    if (byte === 10 && options.exitOnEnter !== false) {
       break;
     }
 
@@ -70,8 +80,8 @@ export function getStdinBufferSync(): Uint8Array {
 /**
  * Returns a string from standard input in sync mode
  */
-export function getStdinSync(): string {
-  const buffer = getStdinBufferSync();
+export function getStdinSync(options: GetStdinOptions = {}): string {
+  const buffer = getStdinBufferSync(options);
 
   return decoder.decode(buffer);
 }
