@@ -54,6 +54,26 @@ console.log(`Hellou ${guest || 'Stranger'}`);
 //=> 'Hellou Deno'
 ```
 
+### You can read whole files from stdin too
+
+```ts
+// example.ts
+import { getStdin } from 'deno.land/x/get_stdin/mod.ts';
+
+const input = await getStdin({ exitOnEnter: false })
+
+console.log(`Received a bunch of (possibly) multiline text from stdin:\n${input}`)
+```
+
+```sh
+$ echo lots\nof\nstuff\nhere > example.txt
+$ cat example.txt | deno run example.ts
+lots
+of
+stuff
+here
+```
+
 ## API
 
 ### getStdin(options?: GetStdinOptions)
