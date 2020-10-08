@@ -60,9 +60,9 @@ console.log(`Hellou ${guest || 'Stranger'}`);
 // example.ts
 import { getStdin } from 'deno.land/x/get_stdin/mod.ts';
 
-const input = await getStdin({ exitOnEnter: false })
+const input = await getStdin({ exitOnEnter: false });
 
-console.log(`Received a bunch of (possibly) multiline text from stdin:\n${input}`)
+console.log(`Received a bunch of (possibly) multiline text from stdin:\n${input}`);
 ```
 
 ```sh
